@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --body-bg-color: rgb(1, 1, 23);
+  --body-grid-color: rgba(255, 255, 255, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  background-color: var(--body-bg-color);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #010117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    linear-gradient(to right, var(--body-grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--body-grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  animation: bgGridAnimation 40s linear infinite;
+}
+
+@keyframes bgGridAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+#btn {
+  position: relative;
+  overflow: hidden;
+}
+
+#btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1;
+  transition: all 0.3s linear;
+}
+
+#btn:hover::after {
+  width: 100%;
+}
+
+#btn span {
+  position: relative;
+  z-index: 2;
+}
